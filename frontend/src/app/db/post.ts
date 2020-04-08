@@ -23,7 +23,7 @@ export const posts = [
         text: "texttexttexttexttexttexttext",
         author: users[1],
         created_at: '2019-02-03',
-        categories: categories[1]
+        category: categories[1]
      },
      {
         id: 4,
@@ -39,7 +39,7 @@ export const posts = [
         text: "1123581321",
         author: users[0],
         created_at: '2019-05-10',
-        categories: categories[0]
+        category: categories[0]
      },
      {
         id: 6,
@@ -55,7 +55,7 @@ export const posts = [
         text: "1123581321",
         author: users[1],
         created_at: '2019-06-10',
-        categories: categories[3]
+        category: categories[3]
      },
      {
         id: 8,
