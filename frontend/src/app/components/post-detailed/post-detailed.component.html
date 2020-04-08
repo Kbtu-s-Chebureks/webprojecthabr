@@ -12,6 +12,7 @@
     </div>
   </div>
   <div class="post-likes">
-    <p>Likes: {{ likeCount }}</p>
+    <button type="submit" class="btn" (click)="onLikeClick()">Like</button>
+    <p [ngClass]="{ 'isLiked': isLikedByMe }">Likes: {{ likeCount }}</p>
   </div>
 </div>

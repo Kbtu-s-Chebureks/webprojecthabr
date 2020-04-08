@@ -11,6 +11,12 @@ import { Following } from 'src/app/models/activity';
 export class ProfileComponent implements OnInit {
   myProfile: Profile;
   profile: Profile;
+  following: any[] = [];
+  followers: any[] = [];
+  posts: any[] = [];
+  following_count: number = 0;
+  followers_count: number = 0;
+  posts_count: number = 0;
   
   constructor(
     private profileService: ProfileService
@@ -31,20 +37,20 @@ export class ProfileComponent implements OnInit {
   }
   getMyFollowing() {
     this.profileService.getMyFollowing().subscribe(res => {
-      this.myProfile.following = res;
-      console.log(this.myProfile.following);
+      this.following = res;
+      this.following_count = (this.following).length;
     });
   }
   getMyFollowers() {
     this.profileService.getMyFollowers().subscribe(res => {
-      this.myProfile.followers = res;
-      console.log(this.myProfile.followers);
+      this.followers = res;
+      this.followers_count = (this.followers).length;
     });
   }
   getMyPost() {
     this.profileService.getMyPosts().subscribe(res => {
-      this.myProfile.own_posts = res;
-      console.log(this.myProfile.own_posts);
+      this.posts = res;
+      this.posts_count = (this.posts).length;
     });
   }
 

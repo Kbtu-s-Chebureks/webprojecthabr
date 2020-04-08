@@ -19,14 +19,14 @@ export const profiles = [
     own_posts: [],
     following: [users[0], users[1], users[3]],
     followers: [users[0], users[1]],
-    user: users[1],
+    user: users[2],
     rating: 0,
   },
   {
     own_posts: [],
     following: [users[0], users[1]],
     followers: [users[0], users[2]],
-    user: users[1],
+    user: users[3],
     rating: 0,
   },
 ];
