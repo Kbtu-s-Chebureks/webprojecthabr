@@ -1,0 +1,11 @@
+<div>
+  <p>{{category.name}}</p>
+  <h3>POSTS</h3>
+<div *ngFor = "let post of posts">
+  <h4>{{post.title}}</h4>
+  <p>{{post.text}}</p>
+  <br>
+  <p>author: {{post.author.name}}</p>
+</div>
+
+</div>

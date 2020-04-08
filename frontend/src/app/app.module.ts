@@ -9,6 +9,8 @@ import { MainComponent } from './components/main/main.component';
 import { CategoryComponent } from './components/category/category.component';
 import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CategoryDetailedComponent } from './components/category-detailed/category-detailed.component';
+import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     MainComponent,
     CategoryComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    CategoryDetailedComponent,
+    PostDetailedComponent
   ],
   imports: [
     BrowserModule,

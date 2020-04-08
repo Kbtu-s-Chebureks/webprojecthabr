@@ -6,6 +6,8 @@ import { MainComponent } from './components/main/main.component'
 import { CategoryComponent } from './components/category/category.component';
 import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CategoryDetailedComponent } from './components/category-detailed/category-detailed.component';
+import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
 
 const routes: Routes = [
   { 
@@ -14,7 +16,9 @@ const routes: Routes = [
     children:[
       { path: 'category', component: CategoryComponent},
       { path: 'post', component: PostComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: 'profile', component: ProfileComponent},
+      { path: 'category/:id', component: CategoryDetailedComponent},
+      { path: 'post/:id', component: PostDetailedComponent},
     ]
   }
 ];

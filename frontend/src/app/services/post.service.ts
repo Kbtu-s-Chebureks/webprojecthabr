@@ -14,4 +14,8 @@ export class PostService {
   getPosts(): Observable<any> {
     return of(posts);
   }
+
+  getPost(id:number): Observable<any> {
+    return of(posts.find(post=> post.id === id));
+  }
 }
