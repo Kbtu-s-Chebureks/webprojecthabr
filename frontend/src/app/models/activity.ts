@@ -8,7 +8,8 @@ export interface Likes{
 
 export interface Comments{
     post: Post;
-    whoComment: User[];
+    text: string,
+    whoComment: User;
 }
 
 export interface Following{
