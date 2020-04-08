@@ -3,7 +3,7 @@ import {Post} from './articles';
 
 export interface Likes{
     post: Post;
-    whoLike: User[];
+    whoLike: User;
 }
 
 export interface Comments{

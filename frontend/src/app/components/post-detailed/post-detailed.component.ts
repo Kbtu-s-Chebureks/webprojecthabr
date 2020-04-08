@@ -9,6 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostDetailedComponent implements OnInit {
   post : any;
+  comments: any[] = [];
+  likes: any[] = [];
+  isLikedByMe = false;
+  likeCount = 0;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService
@@ -23,7 +27,24 @@ export class PostDetailedComponent implements OnInit {
     this.postService.getPost(id).subscribe(post => {
       this.post = post;
       console.log(this.post);
+      this.postService.getCommentsOfPost(this.post.id).subscribe(comments => {
+        this.comments = comments;
+      });
+      this.postService.getLikesOfPost(this.post.id).subscribe(likes => {
+        this.likes = likes;
+        this.likeCount = this.likes.length;
+        this.likes.forEach(like => {
+          if(like.own.id === 0) {
+            this.isLikedByMe = true;
+          }
+        });
+      });
       });
   }
 
+  onLikeClick(){
+    this.isLikedByMe = !this.isLikedByMe;
+    if(this.isLikedByMe) this.likeCount++;
+    else this.likeCount--;
+  }
 }
