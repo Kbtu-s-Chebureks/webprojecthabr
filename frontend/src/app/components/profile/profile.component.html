@@ -1,0 +1,15 @@
+<div *ngIf="myProfile">
+  <p>{{myProfile.user.name}}</p>
+  <h1>POSTS</h1>
+<div *ngFor = "let post of myProfile.own_posts">
+  <p>{{post.title}}</p>
+</div>
+<h1>Following</h1>
+<div *ngFor = "let followingItem of myProfile.following">
+  <p>{{followingItem.name}}</p>
+</div>
+<h1>Followers</h1>
+<div *ngFor = "let follower of myProfile.followers">
+  <p>{{follower.name}}</p>
+</div>
+</div>

@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component'
 import { CategoryComponent } from './components/category/category.component';
 import { PostComponent } from './components/post/post.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { 
@@ -12,7 +13,8 @@ const routes: Routes = [
     component: MainComponent,
     children:[
       { path: 'category', component: CategoryComponent},
-      { path: 'post', component: PostComponent}
+      { path: 'post', component: PostComponent},
+      { path: 'profile', component: ProfileComponent}
     ]
   }
 ];
