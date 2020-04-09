@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CategoryDetailedComponent } from './components/category-detailed/category-detailed.component';
 import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
 import { OthersProfileComponent } from './components/others-profile/others-profile.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 const routes: Routes = [
   { 
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'category/:id', component: CategoryDetailedComponent},
       { path: 'post/:id', component: PostDetailedComponent},
       { path: 'profile/:id', component: OthersProfileComponent},
+      { path: 'create', component: CreatePostComponent},
     ]
   }
 ];

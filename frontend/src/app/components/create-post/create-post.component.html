@@ -1,0 +1,18 @@
+<div class="create-from">
+  <div>
+    <p>Tittle : </p>
+    <input type="text" [(ngModel)]="newTitle"/>
+  </div>
+  <div>
+    <p>Category: </p>
+    <select [(ngModel)]="newPostCategoryId">
+      <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
+    </select>
+  </div>
+  <div>
+    <p> Text : </p>
+    <input type="text" [(ngModel)]="newText" />
+  </div>
+  <button (click)="onCreatePost()">Create</button>
+  
+</div>

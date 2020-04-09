@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CategoryDetailedComponent } from './components/category-detailed/category-detailed.component';
 import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
 import { OthersProfileComponent } from './components/others-profile/others-profile.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { OthersProfileComponent } from './components/others-profile/others-profi
     ProfileComponent,
     CategoryDetailedComponent,
     PostDetailedComponent,
-    OthersProfileComponent
+    OthersProfileComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

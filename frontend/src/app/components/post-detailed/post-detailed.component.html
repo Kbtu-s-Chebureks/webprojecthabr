@@ -10,6 +10,10 @@
   </div>
   <h3 class="comment">Comments: </h3>
   <div class="post-comments">
+    <div class="add-comment">
+      <input type="text" [(ngModel)]="newComment" />
+      <button (click)="onNewComment()">New Comment</button>
+    </div>
     <div *ngFor="let comment of comments">
       <a class="upper" routerLink="/profile/{{comment.whoComment.id}}">{{ comment.whoComment.username }}</a>
       <p >{{ comment.text}}</p>
