@@ -1,11 +1,13 @@
-<div>
-  <p>{{category.name}}</p>
-  <h3>POSTS</h3>
-<div *ngFor = "let post of posts">
-  <h4>{{post.title}}</h4>
-  <p>{{post.text}}</p>
-  <br>
-  <p>author: {{post.author.name}}</p>
-</div>
+<div class="detailed-category">
+  <div class="label">ALL {{category.name}}</div>
+  <div class="post" *ngFor="let post of posts">
+    <p class="upper"><a class="upper"routerLink="/profile/{{ post.author.id }}"> {{post.author.username}} </a> {{post.created_at}}</p>
+    <p class="title">
+      <a routerLink="/post/{{ post.id }}"> {{ post.title }} </a>
+    </p>
+    <a class="category" routerLink="/category/{{ post.category.id }}">{{ post.category.name }}</a>
 
+    <p>{{ post.text }}</p>
+    <br />
+  </div>
 </div>

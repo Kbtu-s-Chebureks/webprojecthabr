@@ -1,3 +1,5 @@
+<div class="category-comp">
 <div class="categories" *ngFor="let category of categories">
-  <p>{{category.name}}</p>
+    <a class="link" routerLink="/category/{{ category.id }}">{{ category.name }}</a>
+</div>
 </div>

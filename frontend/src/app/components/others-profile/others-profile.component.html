@@ -1,21 +1,33 @@
-<div *ngIf="profile">
-  <p>{{profile.user.name}}</p>
-  <h3>POSTS {{posts_count}}</h3>
-<div *ngFor = "let post of profile.own_posts">
-  <p>
-    <a routerLink="/post/{{post.id}}" > {{post.title}} </a>
-  </p>
-</div>
-<h3>Following {{following_count}}</h3>
-<div *ngFor = "let followingItem of profile.following">
-  <p>
-    <a routerLink="/profile/{{followingItem.id}}"> {{followingItem.name}} </a>
-  </p>
-</div>
-<h3>Followers {{followers_count}}</h3>
-<div *ngFor = "let follower of profile.followers">
-  <p>
-    <a routerLink="/profile/{{follower.id}}"> {{follower.name}} </a>
-  </p>
-</div>
+<div class="prof-comp">
+  <div *ngIf="profile">
+    <p class="title">{{ profile.user.name }}</p>
+    <div class="follow">
+      <div class="following">
+        <h3>Following {{ following_count }}</h3>
+        <div *ngFor="let followingItem of profile.following">
+          <p>
+            <a routerLink="/profile/{{ followingItem.id }}">
+              {{ followingItem.name }}
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="followers">
+        <h3>Followers {{ followers_count }}</h3>
+        <div *ngFor="let follower of profile.followers">
+          <p>
+            <a routerLink="/profile/{{ follower.id }}"> {{ follower.name }} </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>POSTS {{ posts_count }}</h3>
+      <div *ngFor="let post of profile.own_posts">
+        <p>
+          <a routerLink="/post/{{ post.id }}"> {{ post.title }} </a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

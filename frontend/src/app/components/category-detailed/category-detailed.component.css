@@ -1,0 +1,26 @@
+.detailed-category{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.label{
+    font-size: 24px;
+    color: black;
+    border-bottom: 1px solid grey;
+}
+.post{
+    border-bottom: 1px solid grey;
+}
+
+.title{
+    font-size: 24px;
+    color: black;
+}
+
+.upper{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: #555555
+}
+.category{
+    color: #777777;
+}
