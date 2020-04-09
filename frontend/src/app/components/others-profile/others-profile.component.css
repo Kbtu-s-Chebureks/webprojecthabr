@@ -21,3 +21,34 @@
     width: 40%;
     /* background-color: brown; */
 }
+
+.profile__top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.profile__top__image--wrapper {
+    width: 200px;
+    height: 200px;
+    border: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile__title {
+    padding: 20px 10%;
+    box-sizing: border-box;
+}
+
+.profile__top__image {
+    height: 100%;
+    width: auto;
+}
+
+.profile__posts {
+    margin: 10px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}

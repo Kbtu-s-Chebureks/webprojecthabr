@@ -1,25 +1,67 @@
-.post{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.isLiked {
-    color: crimson;
-}
-.label {
-    font-weight: 500;
-    font-size: 30px;
-    font-family: 'Fira Sans',sans-serif;
+.post {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.upper{
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #555555
+.post__top {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
 }
-.comment{
-    border-bottom: 1px solid #666666;
+
+
+.label {
+  font-weight: 500;
+  font-size: 30px;
+}
+.post-likes{
+  background-color: #FFF;
+  border: none;
+  color: #f44336;
+  padding: 10px 0;
+  min-width: 100px; 
+  border: 3px solid #f44336;
+  border-radius: 5px;
+  margin: 0px;
+  text-align: center;
+  outline: none;
+}
+
+.isLiked {
+  color: #fff;
+  background-color: #f44336;
+}
+
+.upper {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #555555;
+}
+.comment {
+  border-bottom: 1px solid #666666;
 }
 .post-comments {
-    border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  padding: 10px 0;
+}
+
+.add-comment{ 
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-comment input {
+  width: calc(100% - 180px);
+}
+
+.post__text {
+  min-height: 100px;
+}
+
+.comment-inner {
+  border-bottom: 1px solid #666666;
 }

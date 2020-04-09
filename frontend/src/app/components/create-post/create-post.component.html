@@ -1,18 +1,19 @@
 <div class="create-from">
-  <div>
-    <p>Tittle : </p>
+  <div class="create-form__content">
+    <p class="create-form__content__label">Tittle : </p>
     <input type="text" [(ngModel)]="newTitle"/>
   </div>
-  <div>
-    <p>Category: </p>
+  <div class="create-form__content">
+    <p class="create-form__content__label">Category: </p>
     <select [(ngModel)]="newPostCategoryId">
       <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
     </select>
   </div>
-  <div>
-    <p> Text : </p>
+  <div class="create-form__content">
+    <p class="create-form__content__label"> Text : </p>
     <input type="text" [(ngModel)]="newText" />
   </div>
-  <button (click)="onCreatePost()">Create</button>
-  
+  <div class="create-form__bottom">
+    <button (click)="onCreatePost()">Create</button>
+  </div>
 </div>

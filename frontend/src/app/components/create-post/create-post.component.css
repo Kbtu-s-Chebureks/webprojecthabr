@@ -1,0 +1,24 @@
+.create-from {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.create-form__content {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.create-form__content__label {
+    margin-right: 10px;
+}
+
+.create-form__bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    margin: 10px;
+}

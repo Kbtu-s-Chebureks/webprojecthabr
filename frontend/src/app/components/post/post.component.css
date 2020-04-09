@@ -3,9 +3,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .post{
     border-bottom: 1px solid grey;
 }
+
 .label{
     font-size: 24px;
     color: black;
@@ -20,6 +22,22 @@
     /* font-family: Arial, Helvetica, sans-serif; */
     color: #555555
 }
+
 .category{
     color: #777777;
+}
+
+.post__top {
+    padding: 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__text {
+    max-height: 1.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

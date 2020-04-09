@@ -1,13 +1,20 @@
-<div class="detailed-category">
-  <div class="label">ALL {{category.name}}</div>
+<div class="posts">
+  <div class="label">ALL {{ category.name }}</div>
   <div class="post" *ngFor="let post of posts">
-    <p class="upper"><a class="upper"routerLink="/profile/{{ post.author.id }}"> {{post.author.username}} </a> {{post.created_at}}</p>
+    <div class="post__top upper">
+      <a class="upper" routerLink="/profile/{{ post.author.id }}">
+        {{ post.author.username }}
+      </a>
+      {{ post.created_at }}
+    </div>
     <p class="title">
       <a routerLink="/post/{{ post.id }}"> {{ post.title }} </a>
     </p>
-    <a class="category" routerLink="/category/{{ post.category.id }}">{{ post.category.name }}</a>
+    <a class="category" routerLink="/category/{{ post.category.id }}">{{
+      post.category.name
+    }}</a>
 
-    <p>{{ post.text }}</p>
+    <p class="post__text">{{ post.text }}</p>
     <br />
   </div>
 </div>

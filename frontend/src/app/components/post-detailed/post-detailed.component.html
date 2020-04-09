@@ -1,22 +1,31 @@
 <div class="post">
-  <p class="upper"><a class="upper" routerLink="/profile/{{ post.author.id }}"> {{post.author.username}} </a> {{post.created_at}}</p>
-  <p class="label">{{post.title}}</p>
-  <p >{{post.text}}</p>
-  
-  
-  <div class="post-likes">
-    <button type="submit" class="btn" (click)="onLikeClick()">Like</button>
-    <p [ngClass]="{ 'isLiked': isLikedByMe }">Likes: {{ likeCount }}</p>
+  <div class="upper post__top">
+    <a class="upper" routerLink="/profile/{{ post.author.id }}">
+      {{ post.author.username }}
+    </a>
+    {{ post.created_at }}
   </div>
-  <h3 class="comment">Comments: </h3>
+  <p class="label">{{ post.title }}</p>
+  <p class="post__text">{{ post.text }}</p>
+
+  <button
+    class="post-likes"
+    [ngClass]="{ isLiked: isLikedByMe }"
+    (click)="onLikeClick()"
+  >
+    Likes: {{ likeCount }}
+  </button>
+  <h3 class="comment">Comments:</h3>
   <div class="post-comments">
+    <div *ngFor="let comment of comments" class="comment-inner">
+      <a class="upper" routerLink="/profile/{{ comment.whoComment.id }}">{{
+        comment.whoComment.username
+      }}</a>
+      <p>{{ comment.text }}</p>
+    </div>
     <div class="add-comment">
       <input type="text" [(ngModel)]="newComment" />
       <button (click)="onNewComment()">New Comment</button>
-    </div>
-    <div *ngFor="let comment of comments">
-      <a class="upper" routerLink="/profile/{{comment.whoComment.id}}">{{ comment.whoComment.username }}</a>
-      <p >{{ comment.text}}</p>
     </div>
   </div>
 </div>
