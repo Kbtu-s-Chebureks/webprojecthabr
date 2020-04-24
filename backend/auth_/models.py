@@ -8,9 +8,6 @@ class ProfileManager(models.Manager):
 
 
 class Profile(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    created_at = models.DateTimeField(auto_now=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     objects = ProfileManager()
 
