@@ -1,5 +1,6 @@
 from django.urls import path
-from api.views import PostListAPIView, PostDetailAPIView, CategoryPostsAPIView, CategoryListAPIView
+from api.views import PostListAPIView, PostDetailAPIView, CategoryPostsAPIView,\
+                    CategoryListAPIView, ProfilePostAPIView, PostLikesAPIView, PostCommentsAPIView
 
 
 urlpatterns = [
@@ -8,4 +9,7 @@ urlpatterns = [
     path('categories/<int:id>/posts/', CategoryPostsAPIView.as_view()),
     path('posts/', PostListAPIView.as_view()),
     path('posts/<int:pk>', PostDetailAPIView.as_view()),
+    path('profile/<int:id>/posts/', ProfilePostAPIView.as_view()),
+    path('posts/<int:pk>/like/', PostLikesAPIView.as_view()),
+    path('posts/<int:pk>/comment/', PostCommentsAPIView.as_view()),
 ]
