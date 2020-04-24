@@ -14,3 +14,12 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'
+
+
+class Follow(models.Model):
+    profile1 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile1')
+    profile2 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile2')
+
+    class Meta:
+        verbose_name = 'Follow'
+        verbose_name_plural = 'Follows'
