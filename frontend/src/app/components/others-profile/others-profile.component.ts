@@ -37,6 +37,8 @@ export class OthersProfileComponent implements OnInit {
   getProfile() {
     this.otherProfileService.getProfile(this.id).subscribe(res => {
       this.profile = res;
+      console.log(res)
+
     });
   }
   getProfileFollowing() {
@@ -50,12 +52,15 @@ export class OthersProfileComponent implements OnInit {
     this.otherProfileService.getProfileFollowers(this.id).subscribe(res => {
       this.followers = res;
       this.followers_count = (this.followers).length;
+      // console.log(res)
+
     });
   }
   getProfilePosts() {
     this.otherProfileService.getProfilePosts(this.id).subscribe(res => {
       this.posts = res;
       this.posts_count = (this.posts).length;
+      // console.log(res)
     });
   }
 

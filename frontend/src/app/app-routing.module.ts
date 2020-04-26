@@ -10,13 +10,14 @@ import { CategoryDetailedComponent } from "./components/category-detailed/catego
 import { PostDetailedComponent } from "./components/post-detailed/post-detailed.component";
 import { OthersProfileComponent } from "./components/others-profile/others-profile.component";
 import { MainPageComponent } from "./components/main-page/main-page.component";
-
+import { LoginComponent } from "./components/login/login.component";
 const routes: Routes = [
   {
     path: "",
     component: MainComponent,
     children: [
       { path: "", component: MainPageComponent },
+      { path: "login", component: LoginComponent },
       { path: "category", component: CategoryComponent },
       { path: "post", component: PostComponent },
       { path: "profile", component: ProfileComponent },

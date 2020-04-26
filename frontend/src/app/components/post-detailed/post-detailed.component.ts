@@ -17,6 +17,7 @@ export class PostDetailedComponent implements OnInit {
   isLikedByMe = false;
   likeCount = 0;
   newComment = "";
+  myUser: any;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
@@ -26,6 +27,7 @@ export class PostDetailedComponent implements OnInit {
   ngOnInit() {
     this.getPost();
     this.getMyProfile();
+    this.myUser = JSON.parse(localStorage.getItem('myUser'));
   }
 
   getMyProfile() {
@@ -47,7 +49,7 @@ export class PostDetailedComponent implements OnInit {
         this.likeCount = this.likes.length;
         this.likes.forEach(like => {
           console.log(like);
-          if(like.WhoLike.id === 0) {
+          if(like.owner.user.id === this.myUser.id) {
             this.isLikedByMe = true;
           }
         });

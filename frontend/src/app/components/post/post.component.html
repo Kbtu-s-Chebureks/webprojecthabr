@@ -3,7 +3,7 @@
   <div class="post" *ngFor="let post of posts">
     <div class="post__top upper">
       <a class="upper" routerLink="/profile/{{ post.author.id }}">
-        {{ post.author.username }}
+        {{ post.author.user.username }}
       </a>
       {{ post.created_at }}
     </div>

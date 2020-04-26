@@ -6,36 +6,37 @@ import {profiles} from './../db/profile'
 import {following} from './../db/following';
 import {followers} from './../db/followers';
 import {posts} from './../db/post';
-
+import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  myid = users[0].id;
-  constructor() { }
+  myid = JSON.parse(localStorage.getItem('myProfile')).id;
+  BASE_URL = 'http://localhost:8000';
+  constructor(private http: HttpClient) { }
   
   getProfile(id: number): Observable<any> {
-    return of(profiles.find(profiles => profiles.user.id === id));
+    return this.http.get(`${this.BASE_URL}/auth/profile/${id}/`);
   }
   getMyProfile(): Observable<any> {
-    return of(profiles.find(profiles => profiles.user.id === this.myid));
+    return this.http.get(`${this.BASE_URL}/auth/my-profile/`);
   }
   getMyFollowing(): Observable<any> {
-    return of(following.find(item => item.own.id === this.myid).whoFollowing);
+    return this.http.get(`${this.BASE_URL}/auth/profile/${this.myid}/following/`);
   } 
   getProfileFollowing(id: number): Observable<any> {
-    return of(following.find(item => item.own.id === id).whoFollowing);
+    return this.http.get(`${this.BASE_URL}/auth/profile/${id}/following/`);
   } 
   getMyFollowers(): Observable<any> {
-    return of(followers.find(item => item.own.id === this.myid).WhoFollow);
+    return this.http.get(`${this.BASE_URL}/auth/profile/${this.myid}/followers/`);
   } 
   getProfileFollowers(id: number): Observable<any> {
-    return of(followers.find(item => item.own.id === id).WhoFollow);
+    return this.http.get(`${this.BASE_URL}/auth/profile/${id}/followers/`);
   } 
   getMyPosts(): Observable<any> {
-    return of(posts.filter(post=>post.author.id === this.myid));
+    return this.http.get(`${this.BASE_URL}/api/profile/${this.myid}/posts/`);
   }
   getProfilePosts(id: number): Observable<any> {
-    return of(posts.filter(post=>post.author.id === id));
+    return this.http.get(`${this.BASE_URL}/api/profile/${id}/posts/`);
   }
 }

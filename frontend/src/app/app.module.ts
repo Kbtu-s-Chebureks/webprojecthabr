@@ -15,7 +15,9 @@ import { PostDetailedComponent } from './components/post-detailed/post-detailed.
 import { OthersProfileComponent } from './components/others-profile/others-profile.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
+import {LoginComponent} from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +32,21 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     OthersProfileComponent,
     CreatePostComponent,
     MainPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

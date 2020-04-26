@@ -5,7 +5,7 @@
         <img src="{{ profile.image }}" alt="" class="profile__top__image">
       </div>
       <div class="profile__title">
-        <p class="title">{{ profile.user.name }}</p>
+        <p class="title">{{ profile.user.username }}</p>
         <p>{{ profile.user.email }}</p>
         <p>{{ profile.user.birthday }}</p>
       </div>
@@ -13,26 +13,26 @@
     <div class="follow">
       <div class="following">
         <h3>Following: {{ following_count }}</h3>
-        <div *ngFor="let followingItem of profile.following">
+        <div *ngFor="let followingItem of following">
           <p>
             <a routerLink="/profile/{{ followingItem.id }}">
-              {{ followingItem.name }}
+              {{ followingItem.user.username }}
             </a>
           </p>
         </div>
       </div>
       <div class="followers">
         <h3>Followers: {{ followers_count }}</h3>
-        <div *ngFor="let follower of profile.followers">
+        <div *ngFor="let follower of followers">
           <p>
-            <a routerLink="/profile/{{ follower.id }}"> {{ follower.name }} </a>
+            <a routerLink="/profile/{{ follower.id }}"> {{ follower.user.username }} </a>
           </p>
         </div>
       </div>
     </div>
     <div class="profile__posts">
       <h3>POSTS: {{ posts_count }}</h3>
-      <div *ngFor="let post of profile.own_posts">
+      <div *ngFor="let post of posts">
         <p>
           <a routerLink="/post/{{ post.id }}"> {{ post.title }} </a>
         </p>

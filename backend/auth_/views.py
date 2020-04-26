@@ -34,6 +34,14 @@ class ProfilesAPIView(generics.ListCreateAPIView):
         return serializer.save(user=self.request.user)
 
 
+class ProfileAPIView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return Profile.objects.all()
+
+
 class ProfileFollowingAPIView(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = ProfileSerializer
@@ -87,3 +95,19 @@ class ProfileFollowOperation(APIView):
         follow = Follow.objects.get(profile1=profile1, profile2=profile2)
         follow.delete()
         return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+
+class MyUserAPIView(generics.ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return User.objects.filter(id=self.request.user.id)
+
+
+class MyProfileAPIView(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return Profile.objects.filter(user=self.request.user)

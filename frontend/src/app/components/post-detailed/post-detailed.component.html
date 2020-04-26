@@ -1,7 +1,7 @@
 <div class="post">
   <div class="upper post__top">
     <a class="upper" routerLink="/profile/{{ post.author.id }}">
-      {{ post.author.username }}
+      {{ post.author.user.username }}
     </a>
     {{ post.created_at }}
   </div>
@@ -18,8 +18,8 @@
   <h3 class="comment">Comments:</h3>
   <div class="post-comments">
     <div *ngFor="let comment of comments" class="comment-inner">
-      <a class="upper" routerLink="/profile/{{ comment.whoComment.id }}">{{
-        comment.whoComment.username
+      <a class="upper" routerLink="/profile/{{ comment.owner.id }}">{{
+        comment.owner.user.username
       }}</a>
       <p>{{ comment.text }}</p>
     </div>

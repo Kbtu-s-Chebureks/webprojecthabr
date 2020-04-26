@@ -22,7 +22,7 @@ export class CategoryDetailedComponent implements OnInit {
 
   getPostsByCategory() {
     const id = +this.route.snapshot.paramMap.get('id'); 
-    this.categoryDetailedService.getProductsByCategory(id).subscribe(res => {
+    this.categoryDetailedService.getPostsOfCategory(id).subscribe(res => {
       this.posts = res;
       console.log(this.posts);
     });
