@@ -3,6 +3,7 @@ import { PostService } from 'src/app/services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Profile } from 'src/app/models/identity';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-post-detailed',
@@ -18,6 +19,12 @@ export class PostDetailedComponent implements OnInit {
   likeCount = 0;
   newComment = "";
   myUser: any;
+  likeid = 0;
+  like = {
+  }
+  commentary = {
+    "text": "this.newComment"
+  }
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
@@ -33,10 +40,12 @@ export class PostDetailedComponent implements OnInit {
   getMyProfile() {
     this.profileService.getMyProfile().subscribe(res => {
       this.myProfile = res;
+      this.myProfile = this.myProfile[0];
       console.log(this.myProfile);
     });
   }
   getPost() {
+    console.log("getPost")
     const id = +this.route.snapshot.paramMap.get('id');
     this.postService.getPost(id).subscribe(post => {
       this.post = post;
@@ -51,6 +60,7 @@ export class PostDetailedComponent implements OnInit {
           console.log(like);
           if(like.owner.user.id === this.myUser.id) {
             this.isLikedByMe = true;
+            this.likeid = like.id;
           }
         });
       });
@@ -58,23 +68,41 @@ export class PostDetailedComponent implements OnInit {
   }
 
   onLikeClick(){
-    this.isLikedByMe = !this.isLikedByMe;
-    if(this.isLikedByMe) this.likeCount++;
-    else this.likeCount--;
+    if(this.isLikedByMe){
+      this.postService.deleteLikesOfPost(this.post.id, this.likeid ).subscribe(res => {
+        console.log("deleted");
+        this.getPost();
+        this.isLikedByMe = false;
+      })
+    }
+    else {
+      this.postService.createLikesOfPost(this.post.id, this.like ).subscribe(res => {
+        console.log("created");
+
+        this.getPost();
+        this.isLikedByMe = true;
+      })
+    }
+    // this.isLikedByMe = !this.isLikedByMe;
+    // if(this.isLikedByMe) this.likeCount++;
+    // else this.likeCount--;
   }
 
   onNewComment(){
-    console.log('This is a method that sends data to back');
-    console.log(this.newComment);
+    this.commentary = {
+      "text": this.newComment
+    }
+    this.postService.createCommentsOfPost(this.post.id, this.commentary).subscribe(res => {
+
+    })
+    console.log(this.commentary);
     
-      this.comments.push({
-        id: this.comments.length + 1,
-        text: this.newComment,
-        whoComment: this.myProfile.user
-      });
 
 
     this.newComment = "";
+    this.commentary = {
+      "text": ""
+    }
   }
 
 }

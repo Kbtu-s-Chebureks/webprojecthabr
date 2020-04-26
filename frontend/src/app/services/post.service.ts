@@ -26,9 +26,21 @@ export class PostService {
   getCommentsOfPost(id: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}/api/posts/${id}/comment/`);
   }
+  createCommentsOfPost(id: number, comment: any): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/api/posts/${id}/comment/`, comment);
+  }
+  // deleteCommentsOfPost(id: number): Observable<any> {
+  //   return this.http.delete(`${this.BASE_URL}/api/posts/${id}/comment/`);
+  // }
 
   getLikesOfPost(id: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}/api/posts/${id}/like/`);
+  }
+  createLikesOfPost(id: number, like: any): Observable<any>{
+    return this.http.post(`${this.BASE_URL}/api/posts/${id}/like/`, like);
+  }
+  deleteLikesOfPost(id: number, id2: number): Observable<any>{
+    return this.http.delete(`${this.BASE_URL}/api/posts/${id}/like/${id2}`);
   }
 
 }

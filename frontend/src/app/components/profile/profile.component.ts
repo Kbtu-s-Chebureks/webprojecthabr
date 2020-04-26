@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
   getMyProfile() {
     this.profileService.getMyProfile().subscribe(res => {
       this.myProfile = res;
-      console.log(this.myProfile);
+      this.myProfile = this.myProfile[0];
     });
   }
   getMyFollowing() {

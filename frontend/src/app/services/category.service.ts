@@ -19,6 +19,9 @@ export class CategoryService {
   getCategory(id: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}/api/categories/${id}/`);
   }
+  createPost(id:number, post:any): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/api/categories/${id}/posts/`, post)
+  }
 
   getPostsOfCategory(id: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}/api/categories/${id}/posts`);

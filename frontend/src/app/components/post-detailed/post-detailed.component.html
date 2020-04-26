@@ -1,5 +1,5 @@
 <div class="post">
-  <div class="upper post__top">
+  <div class="upper post__top" *ngIf="post">
     <a class="upper" routerLink="/profile/{{ post.author.id }}">
       {{ post.author.user.username }}
     </a>

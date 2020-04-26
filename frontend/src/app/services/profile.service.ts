@@ -19,6 +19,7 @@ export class ProfileService {
     return this.http.get(`${this.BASE_URL}/auth/profile/${id}/`);
   }
   getMyProfile(): Observable<any> {
+    console.log("ok")
     return this.http.get(`${this.BASE_URL}/auth/my-profile/`);
   }
   getMyFollowing(): Observable<any> {

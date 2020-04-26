@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Post } from 'src/app/models/articles';
 
 @Component({
   selector: 'app-create-post',
@@ -12,7 +14,7 @@ export class CreatePostComponent implements OnInit {
   myProfile: any;
   newPost : any;
   newPostCategoryId: number;
-  categories: any[];
+  categories: any[] = [];
   newTitle = "";
   newText = "";
   constructor(
@@ -29,7 +31,7 @@ export class CreatePostComponent implements OnInit {
   getMyProfile() {
     this.profileService.getMyProfile().subscribe(res => {
       this.myProfile = res;
-      console.log(this.myProfile);
+      this.myProfile = this.myProfile[0];
     });
   }
 
@@ -41,15 +43,16 @@ export class CreatePostComponent implements OnInit {
   }
   onCreatePost(){
     console.log('This is a method that sends data to back');
-      const category = this.categories.find(item => Number(this.newPostCategoryId) === item.id);
+      // const category = this.categories.find(item => Number(this.newPostCategoryId) === item.id);
       this.newPost = {
-        id: 9,
         text: this.newText,
-        author: this.myProfile.user,
+        // author: this.myProfile.user,
         title: this.newTitle,
-        created_at: '11-11-20',
-        category: category
+        // created_at: '11-11-20',
+        // category: category
       };
+      this.categoryService.createPost(this.newPostCategoryId, this.newPost).subscribe(res =>
+        this.newPost = null)
       this.newText = "";
       this.newTitle = "";
       this.newPostCategoryId = 0;
